@@ -4,8 +4,8 @@
 
 set -eu
 # 実行ユーザ作成
-USER_ID=${LOCAL_UID:-9001}
-GROUP_ID=${LOCAL_GID:-9001}
+USER_ID=${LOCAL_UID:-9002}
+GROUP_ID=${LOCAL_GID:-9002}
 
 echo "exec with [UID : $USER_ID, GID: $GROUP_ID]"
 useradd -u $USER_ID -o -m user

@@ -6,7 +6,7 @@ RUN apt-get update \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-ADD dummy /
+# ADD dummy /
 
 RUN git clone https://github.com/w-okada/voice-changer.git -b v.1.5.3.13
 

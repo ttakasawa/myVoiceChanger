@@ -14,6 +14,8 @@ echo "exec with [UID : $USER_ID, GID: $GROUP_ID]"
 
 #su user
 #echo "parameter: $@"
-exec /usr/sbin/gosu user /bin/bash exec.sh "$@"
+# exec /usr/sbin/gosu user /bin/bash exec.sh "$@"
+exec /usr/sbin/gosu /bin/bash exec.sh "$@"
+
 #/bin/bash
 

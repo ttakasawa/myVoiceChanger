@@ -4,18 +4,18 @@
 
 set -eu
 # 実行ユーザ作成
-USER_ID=${LOCAL_UID:-9002}
-GROUP_ID=${LOCAL_GID:-9002}
+USER_ID=${LOCAL_UID:-9001}
+GROUP_ID=${LOCAL_GID:-9001}
 
 echo "exec with [UID : $USER_ID, GID: $GROUP_ID]"
-# useradd -u $USER_ID -o -m user
-# groupmod -g $GROUP_ID user
-# chmod uog+rwx tmp_dir
+useradd -u $USER_ID -o -m user
+groupmod -g $GROUP_ID user
+chmod uog+rwx tmp_dir
 
 #su user
 #echo "parameter: $@"
-# exec /usr/sbin/gosu user /bin/bash exec.sh "$@"
-exec /usr/sbin/gosu /bin/bash exec.sh "$@"
+exec /usr/sbin/gosu user /bin/bash exec.sh "$@"
+# exec /usr/sbin/gosu /bin/bash exec.sh "$@"
 
 #/bin/bash
 

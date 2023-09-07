@@ -9,7 +9,9 @@ RUN apt-get update \
 WORKDIR /
 ADD dummy /
 
-RUN git clone https://github.com/w-okada/voice-changer.git -b v.1.5.3.13
+# RUN git clone https://github.com/w-okada/voice-changer.git -b v.1.5.3.13
+RUN git clone https://github.com/w-okada/voice-changer.git
+
 
 
 

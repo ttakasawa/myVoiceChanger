@@ -128,11 +128,17 @@ def localServer(logLevel: str = "critical"):
 
 
 if __name__ == "MMVCServerSIO":
+    printMessage("Working in MMVCServerSIO context", level=2)
     mp.freeze_support()
 
+    printMessage("MVCServerSIO startup", level=2)
+
     voiceChangerManager = VoiceChangerManager.get_instance(voiceChangerParams)
+    printMessage("MVCServerSIO VM", level=2)
     app_fastapi = MMVC_Rest.get_instance(voiceChangerManager, voiceChangerParams)
+    printMessage("MVCServerSIO app_fastapi", level=2)
     app_socketio = MMVC_SocketIOApp.get_instance(app_fastapi, voiceChangerManager)
+    printMessage("MVCServerSIO app_socketio", level=2)
 
 
 if __name__ == "__mp_main__":
@@ -236,6 +242,8 @@ if __name__ == "__main__":
     if args.https:
         # HTTPS サーバ起動
         try:
+            printMessage("HTTPS starting")
+            printMessage(f"{os.path.basename(__file__)[:-3]}:app_socketio")
             uvicorn.run(
                 f"{os.path.basename(__file__)[:-3]}:app_socketio",
                 host="0.0.0.0",  # port=int(PORT),

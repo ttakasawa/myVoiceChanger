@@ -112,15 +112,14 @@ vcparams.setParams(voiceChangerParams)
 
 printMessage(f"Booting PHASE :{__name__}", level=2)
 
-PORT = args.p
-
+#PORT = args.p
+PORT = '1234'
 
 def localServer(logLevel: str = "critical"):
     try:
         uvicorn.run(
             f"{os.path.basename(__file__)[:-3]}:app_socketio",
-            host="0.0.0.0",
-            port=int(PORT),
+            host="0.0.0.0",    #port=int(PORT),
             reload=False if hasattr(sys, "_MEIPASS") else True,
             log_level=logLevel,
         )
@@ -239,8 +238,7 @@ if __name__ == "__main__":
         try:
             uvicorn.run(
                 f"{os.path.basename(__file__)[:-3]}:app_socketio",
-                host="0.0.0.0",
-                port=int(PORT),
+                host="0.0.0.0",  # port=int(PORT),
                 reload=False if hasattr(sys, "_MEIPASS") else True,
                 ssl_keyfile=key_path,
                 ssl_certfile=cert_path,

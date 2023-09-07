@@ -7,7 +7,6 @@ RUN apt-get update \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-ADD dummy /
 
 RUN git clone https://github.com/w-okada/voice-changer.git -b v.1.5.3.13
 # RUN git clone https://github.com/w-okada/voice-changer.git
@@ -21,7 +20,7 @@ RUN pip install numpy==1.23.5 \
         && pip install pyworld==0.3.3 --no-build-isolation \
         && pip install -r requirements.txt
 
-
+ADD dummy /
 ADD /setup.sh  /voice-changer/server
 ADD /exec.sh  /voice-changer/server
 

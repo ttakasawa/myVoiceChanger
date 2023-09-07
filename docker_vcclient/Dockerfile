@@ -20,7 +20,7 @@ RUN pip install numpy==1.23.5 \
         && pip install pyworld==0.3.3 --no-build-isolation \
         && pip install -r requirements.txt
 
-ADD dummy /
+# ADD dummy /
 ADD /setup.sh  /voice-changer/server
 ADD /exec.sh  /voice-changer/server
 

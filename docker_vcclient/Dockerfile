@@ -1,5 +1,5 @@
 FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
-FROM python:3.10
+# FROM python:3.10
 
 RUN apt-get update \
         && apt-get install -y python3-pip espeak gosu libsndfile1-dev emacs git \
@@ -7,7 +7,7 @@ RUN apt-get update \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-# ADD dummy /
+ADD dummy /
 
 RUN git clone https://github.com/w-okada/voice-changer.git -b v.1.5.3.13
 # RUN git clone https://github.com/w-okada/voice-changer.git

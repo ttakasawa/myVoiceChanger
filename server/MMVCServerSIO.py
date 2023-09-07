@@ -221,6 +221,7 @@ if __name__ == "__main__":
 
     # printMessage("多くの場合は次のいずれかのURLにアクセスすると起動します。", level=2)
     printMessage("In many cases, it will launch when you access any of the following URLs.", level=2)
+    printMessage("Is my print working", level=2)
     if "EX_PORT" in locals() and "EX_IP" in locals():  # シェルスクリプト経由起動(docker)
         if args.https == 1:
             printMessage(f"https://127.0.0.1:{EX_PORT}/", level=1)
@@ -238,12 +239,13 @@ if __name__ == "__main__":
         else:
             printMessage(f"http://127.0.0.1:{PORT}/", level=1)
 
+    printMessage("Is my print working 2", level=2)
     # サーバ起動
     if args.https:
         # HTTPS サーバ起動
         try:
-            printMessage("HTTPS starting")
-            printMessage(f"{os.path.basename(__file__)[:-3]}:app_socketio")
+            printMessage("HTTPS starting", level=2)
+            printMessage(f"{os.path.basename(__file__)[:-3]}:app_socketio", level=2)
             uvicorn.run(
                 f"{os.path.basename(__file__)[:-3]}:app_socketio",
                 host="0.0.0.0",  # port=int(PORT),
@@ -256,6 +258,7 @@ if __name__ == "__main__":
             logger.error(f"[Voice Changer] Web Server(https) Launch Exception, {e}")
 
     else:
+        printMessage("Otherwise", level=2)
         p = mp.Process(name="p", target=localServer, args=(args.logLevel,))
         p.start()
         try:

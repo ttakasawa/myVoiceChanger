@@ -12,7 +12,7 @@ RUN git clone https://github.com/w-okada/voice-changer.git -b v.1.5.3.13
 # RUN git clone https://github.com/w-okada/voice-changer.git
 
 
-
+EXPOSE 18888
 
 RUN chmod 0777 /voice-changer/server
 WORKDIR /voice-changer/server
